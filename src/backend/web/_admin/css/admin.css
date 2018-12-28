@@ -1,0 +1,97 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+@media screen and (min-width: 768px) {
+    .modal-dialog.modal-lg {
+        width: 80%
+    }
+}
+
+.green {
+    color:#00aa00;
+}
+.grey {
+    color:#9d9d9d;
+}
+.red {
+    color:red;
+}
+
+.btn-orange {
+    color: #ffffff;
+    background-color: #f16e00;
+    border-color: #f16e00;
+}
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active,
+.open .dropdown-toggle.btn-orange {
+    color: #ffffff;
+    background-color: #DE6E00;
+    border-color: #DE6E00;
+}
+
+#dropdown-info > li:nth-child(1) {
+    min-width: 65px;
+}
+#oc-count {
+    position: relative;
+}
+#oc-count .badge {
+    position: absolute;
+    top: -1px;
+    left: 40px;
+}
+
+.modal .modal-body {
+    overflow: hidden
+}
+.modal > [class*="modal-xl"] {
+    width: 96%
+}
+.modal > [class*="modal-md"] {
+    width: 65%
+}
+input.small-input {
+    width: 150px
+}
+
+@media screen and (max-width: 1024px) {
+    .modal > [class*="modal-md"] {
+        width: 90%;
+        margin-left: 15px;
+    }
+}
+
+.cursor-ptr {
+    cursor: pointer;
+}
+
+.panel-light {
+    border-color: #edeeef;
+}
+
+.panel-light > .panel-heading {
+    color: #6a828c;
+    background-color: #f6f8f9;
+    border-color: #eaeaea;
+}
+
+.js-checkbox-touchable {
+    padding-left: 15px;
+}
+
+.has-error .block-error {
+    color: red;
+    padding-top: 5px;
+}
+
+form .form-group label {
+    color: #525252
+
+}
+

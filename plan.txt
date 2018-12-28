@@ -1,0 +1,22 @@
+1. Как получить историю и мероприятий и новостей своих
+2. Как получить лист и мер. и нов. всех
+3. Как отфильтровать или новости или мероприятия в общей ленте
+
+
+
+cd api\web\
+php -S localhost:8080
+cd ..\..\
+
+vendor\bin\codecept.bat run api\tests\api\auth\SignupCest.php
+vendor\bin\codecept.bat run api\tests\api\auth\LoginCest.php
+
+ vendor\bin\codecept.bat run api\tests\api\reset\PhoneCest.php
+
+vendor\bin\codecept.bat run
+vendor\bin\codecept.bat run api\tests\api\SignupCest.php
+
+
+
+php yii gii/model --tableName=user_profile --modelClass=UserProfile
+

@@ -1,0 +1,68 @@
+{
+    "name": "yiisoft/yii2-app-advanced",
+    "description": "Yii 2 Advanced Project Template",
+    "keywords": ["yii2", "framework", "advanced", "project template"],
+    "homepage": "http://www.yiiframework.com/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/yii2"
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.6",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
+        "borales/yii2-phone-input": "*",
+        "fishvision/yii2-migrate": "*",
+        "yiisoft/yii2-redis": "^2.0",
+        "yiisoft/yii2-authclient": "^2.1",
+        "la-haute-societe/yii2-save-relations-behavior": "*",
+        "kartik-v/yii2-widgets": "^3.4",
+        "kartik-v/yii2-field-range": "*"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "~2.0.0",
+        "yiisoft/yii2-faker": "~2.0.0",
+        "codeception/base": "^2.2.3",
+        "codeception/verify": "~0.3.1",
+        "symfony/var-dumper": "^4.0",
+        "zircote/swagger-php": "^2.0",
+        "guzzlehttp/guzzle": ">=4.1.4 <7.0",
+        "flow/jsonpath": "^0.3.4",
+
+        "ivan-chkv/yii2-jui-datepicker": "2.0.1",
+        "kartik-v/yii2-widget-datetimepicker": "dev-master",
+        "abeautifulsite/simpleimage": "2.6.0",
+        "saada/yii2-factory-muffin": "~2.0"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "scripts":{
+        "post-install-cmd": "php init --env=Development --overwrite=n"
+    },
+    "autoload":{
+        "psr-4": {
+            "lib\\":"lib/"
+        },
+        "files":[
+            "lib/func/functions.php"
+        ]
+    }
+}

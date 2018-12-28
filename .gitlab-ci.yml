@@ -1,0 +1,48 @@
+image: git-registry.egs.kz/docker-images/php-apache:php-7.1.0
+
+stages:
+  - install
+  - build
+
+before_script:
+  - export TAG="1.1.0-$CI_PIPELINE_ID-$(echo $CI_BUILD_REF | cut -c1-7)"
+  - export FULL_VERSION="1.1.0-$CI_PIPELINE_ID-$(echo $CI_BUILD_REF | cut -c1-7)"
+
+composer:
+  stage: install
+  tags:
+    - composer-build
+  
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+    - src/vendor/
+    
+  artifacts:
+    expire_in: 7 day
+    paths:
+      - src/vendor/
+
+  script:
+    - cd src
+    - php composer.phar config cache-files-dir /root/.composer
+    - php composer.phar config -g github-oauth.github.com 6b1c9beb486dfed69141fbc10416f2cd60aee1ee
+    - php composer.phar install
+
+docker-image:
+  stage: build
+  image: docker:latest
+  dependencies:
+    - composer
+  tags:
+    - composer-build
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker build -t $CI_PROJECT_PATH .
+    - docker tag $CI_PROJECT_PATH $CI_REGISTRY_IMAGE
+    - docker tag $CI_PROJECT_PATH $CI_REGISTRY_IMAGE:$TAG
+    - docker push $CI_REGISTRY_IMAGE
+    - docker push $CI_REGISTRY_IMAGE:$TAG
+    - docker rmi $CI_PROJECT_PATH
+    - docker rmi $CI_REGISTRY_IMAGE
+    - docker rmi $CI_REGISTRY_IMAGE:$TAG
